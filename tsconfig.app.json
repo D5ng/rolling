@@ -23,6 +23,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
+    "types": ["vitest"],
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
