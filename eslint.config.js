@@ -13,6 +13,9 @@ export default tseslint.config([
   globalIgnores(["dist"]),
   {
     files: ["**/*.{ts,tsx}"],
+    env: {
+      "vitest/globals": true
+    },
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
