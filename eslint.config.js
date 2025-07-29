@@ -13,9 +13,6 @@ export default tseslint.config([
   globalIgnores(["dist"]),
   {
     files: ["**/*.{ts,tsx}"],
-    env: {
-      "vitest/globals": true
-    },
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
@@ -143,7 +140,18 @@ export default tseslint.config([
     },
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser
+      globals: {
+        ...globals.browser,
+        describe: "readonly",
+        it: "readonly",
+        test: "readonly",
+        expect: "readonly",
+        vi: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        beforeAll: "readonly",
+        afterAll: "readonly"
+      }
     },
     settings: {
       react: {
