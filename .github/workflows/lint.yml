@@ -1,0 +1,28 @@
+name: Lint
+
+on:
+  pull_request:
+    branches: [develop, main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 저장소 체크아웃
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Node.js 24.4.0 설치
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "24.4.0"
+
+      # 3. 의존성 설치 (yarn)
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # 4. ESLint 검사
+      - name: Lint check
+        run: yarn lint
