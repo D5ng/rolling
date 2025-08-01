@@ -140,7 +140,18 @@ export default tseslint.config([
     },
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser
+      globals: {
+        ...globals.browser,
+        describe: "readonly",
+        it: "readonly",
+        test: "readonly",
+        expect: "readonly",
+        vi: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        beforeAll: "readonly",
+        afterAll: "readonly"
+      }
     },
     settings: {
       react: {
