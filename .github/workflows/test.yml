@@ -25,4 +25,4 @@ jobs:
 
       # 4. Vitest 테스트 실행
       - name: Run tests
-        run: yarn test
+        run: yarn test:unit
