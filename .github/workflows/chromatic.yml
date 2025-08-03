@@ -19,11 +19,10 @@ jobs:
         with:
           node-version: "24.4.0"
 
-      # 3. yarn 의존성 설치
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-			- name: Build Storybook
+      - name: Build Storybook
         run: yarn run build-storybook
 
       - name: Publish to Chromatic
