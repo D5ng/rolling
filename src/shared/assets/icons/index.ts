@@ -1,0 +1,6 @@
+export { default as AddReactionIcon } from "./add-reaction.svg?react"
+export { default as ArrowIcon } from "./arrow.svg?react"
+export { default as CheckIcon } from "./check.svg?react"
+export { default as DeletedIcon } from "./deleted.svg?react"
+export { default as PlusIcon } from "./plus.svg?react"
+export { default as ShareIcon } from "./share.svg?react"
