@@ -19,8 +19,17 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: ["./vitest-setup.ts"],
     projects: [
+      defineConfig({
+        test: {
+          name: "unit",
+          globals: true,
+          environment: "jsdom",
+          include: ["src/**/*.{test,spec}.{ts,tsx}"],
+          exclude: ["**/*.stories.*", "**/node_modules/**"],
+          setupFiles: ["./vitest-setup.ts"]
+        }
+      }),
       {
         extends: true,
         plugins: [
