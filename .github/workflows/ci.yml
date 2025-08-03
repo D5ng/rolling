@@ -15,11 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Node.js 20.18.0 설치
+      # 2. Node.js 22.18.0 설치
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20.18.0"
+          node-version: "22.18.0"
 
       # 3. 의존성 캐시
       - name: Cache dependencies
