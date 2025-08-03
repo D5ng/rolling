@@ -22,6 +22,7 @@ export default defineConfig({
     environment: "jsdom",
     projects: [
       defineConfig({
+        plugins: [tsconfigPaths()],
         test: {
           name: "unit",
           globals: true,
