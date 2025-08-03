@@ -13,18 +13,40 @@ jobs:
     steps:
       # 1. 저장소 체크아웃
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # 2. Node.js 24.4.0 설치
+      # 2. Node.js 20.18.0 설치
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "24.4.0"
+          node-version: "20.18.0"
 
-      # 3. 의존성 설치 (yarn)
+      # 3. 의존성 캐시
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # 4. 의존성 설치 (yarn)
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      # 4. Vite 빌드 실행
+      # 5. ESLint 검사
+      - name: Lint check
+        run: yarn lint
+        continue-on-error: false
+
+      # 6. Vitest 테스트 실행
+      - name: Run tests
+        run: yarn test:unit
+        continue-on-error: false
+
+      # 7. Vite 빌드 실행
       - name: Build app
         run: yarn build
+        continue-on-error: false
