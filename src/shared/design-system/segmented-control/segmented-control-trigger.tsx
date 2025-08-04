@@ -33,6 +33,7 @@ export default function SegmentedControlTrigger({ children, value, ...restProps 
       {...restProps}
       role="tab"
       aria-selected={isSelected}
+      aria-label={`${value}-trigger`}
       aria-controls={`${value}-content`}
     >
       {children}

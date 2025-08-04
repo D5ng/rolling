@@ -20,7 +20,8 @@ export default function SegmentedControlContent({ children, value, className, ..
       className={cn(className)}
       {...restProps}
       role="tabpanel"
-      aria-labelledby={`${value}-trigger`}
+      aria-hidden={selectedItem !== value}
+      aria-label={`${value}-content`}
       id={`${value}-content`}
     >
       {children}
