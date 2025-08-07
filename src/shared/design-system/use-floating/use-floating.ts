@@ -53,7 +53,7 @@ export default function useFloating<TElement extends HTMLElement>({
       return
     }
 
-    debouncedUpdatePosition()
+    updatePosition()
 
     const resizeObserver = new ResizeObserver(debouncedUpdatePosition)
     resizeObserver.observe(domReferenceRef.current!)
@@ -64,7 +64,7 @@ export default function useFloating<TElement extends HTMLElement>({
       resizeObserver.disconnect()
       window.removeEventListener("resize", debouncedUpdatePosition)
     }
-  }, [isMounted, debouncedUpdatePosition])
+  }, [isMounted, updatePosition, debouncedUpdatePosition])
 
   const refs = useMemo(
     () => ({
