@@ -18,7 +18,7 @@ export default function useDebouncedCallback(callback: () => void, delay: number
 
   return useCallback(() => {
     if (timeoutRef.current) {
-      return
+      clearTimeout(timeoutRef.current)
     }
 
     timeoutRef.current = setTimeout(() => {
