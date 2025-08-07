@@ -2,9 +2,10 @@ import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react"
 
 import { useDebouncedCallback } from "../use-debounced-callback"
 
-import { positionCalculators } from "./position-calculators"
+import { getFloatingPosition } from "./get-floating-position"
+import { getFloatingStyle } from "./get-floating-style"
 
-import type { ComputedOffset, UseFloatingReturn, UsePositionParams } from "./use-floating.types"
+import type { PositionCalculator, UseFloatingReturn, UsePositionParams } from "./use-floating.types"
 
 const DEBOUNCE_DELAY = 200
 
@@ -12,10 +13,9 @@ export default function useFloating<TElement extends HTMLElement>({
   offset = 0,
   placement = "bottom"
 }: UsePositionParams = {}): UseFloatingReturn<TElement> {
-  const [computedOffset, setComputedOffset] = useState<ComputedOffset>({
-    position: "absolute",
-    top: "",
-    left: ""
+  const [position, setPosition] = useState<PositionCalculator>({
+    top: 0,
+    left: 0
   })
 
   const domReferenceRef = useRef<TElement>(null)
@@ -38,11 +38,12 @@ export default function useFloating<TElement extends HTMLElement>({
       return
     }
 
-    const position = calculateFloatingPosition(domReferenceRef.current, floatingReferenceRef.current, {
+    const position = getFloatingPosition(domReferenceRef.current, floatingReferenceRef.current, {
       offset,
       placement
     })
-    setComputedOffset(position)
+
+    setPosition(position)
   }, [offset, placement])
 
   const debouncedUpdatePosition = useDebouncedCallback(updatePosition, DEBOUNCE_DELAY)
@@ -71,28 +72,10 @@ export default function useFloating<TElement extends HTMLElement>({
       floatingReferenceRef,
       setReference,
       setFloatingReference,
-      computedOffset
+      floatingStyle: getFloatingStyle(position)
     }),
-    [setReference, setFloatingReference, computedOffset]
+    [setReference, setFloatingReference, position]
   )
 
-  return refs
-}
-
-function calculateFloatingPosition<TElement extends HTMLElement>(
-  domReference: TElement,
-  floatingReference: TElement,
-  { offset = 0, placement = "bottom" }: UsePositionParams = {}
-): ComputedOffset {
-  const anchorRect = domReference.getBoundingClientRect()
-  const floatingRect = floatingReference.getBoundingClientRect()
-
-  const calculator = positionCalculators[placement]
-  const { top, left } = calculator(anchorRect, floatingRect, offset)
-
-  return {
-    position: "absolute",
-    top: `${top}px`,
-    left: `${left}px`
-  }
+  return refs as UseFloatingReturn<TElement>
 }
