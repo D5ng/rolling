@@ -1,10 +1,12 @@
+/* eslint-disable func-call-spacing */
+/* eslint-disable indent */
+import { forwardRef, type InputHTMLAttributes, type Ref, type TextareaHTMLAttributes } from "react"
+
 import { cn } from "@/shared/utils"
 
 import Input from "../input/input"
 import Label from "../label/label"
 import Textarea from "../textarea/textarea"
-
-import type { InputHTMLAttributes, TextareaHTMLAttributes } from "react"
 
 interface Props {
   label?: string
@@ -13,15 +15,10 @@ interface Props {
   disabled?: boolean
 }
 
-export default function TextField({
-  className,
-  id,
-  label,
-  as = "input",
-  error,
-  disabled,
-  ...restProps
-}: Props & (InputHTMLAttributes<HTMLInputElement> | TextareaHTMLAttributes<HTMLTextAreaElement>)) {
+const TextField = forwardRef<
+  HTMLInputElement | HTMLTextAreaElement,
+  Props & (InputHTMLAttributes<HTMLInputElement> | TextareaHTMLAttributes<HTMLTextAreaElement>)
+>(({ className, id, label, as = "input", error, disabled, ...restProps }, ref) => {
   return (
     <div className={cn(`flex flex-col gap-3`, className)}>
       {label && <Label htmlFor={id}>{label}</Label>}
@@ -31,6 +28,7 @@ export default function TextField({
           id={id}
           error={error}
           disabled={disabled}
+          ref={ref as Ref<HTMLInputElement>}
           {...(restProps as InputHTMLAttributes<HTMLInputElement>)}
         />
       )}
@@ -39,9 +37,14 @@ export default function TextField({
           id={id}
           error={error}
           disabled={disabled}
+          ref={ref as Ref<HTMLTextAreaElement>}
           {...(restProps as TextareaHTMLAttributes<HTMLTextAreaElement>)}
         />
       )}
     </div>
   )
-}
+})
+
+TextField.displayName = "TextField"
+
+export default TextField
