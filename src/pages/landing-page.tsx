@@ -1,23 +1,13 @@
 import { Link } from "react-router"
 
-import { FirstPointImage, logo, SecondPointImage } from "@/shared/assets/images"
+import { FirstPointImage, SecondPointImage } from "@/shared/assets/images"
 import Button from "@/shared/design-system/button/button"
+import { Header } from "@/widgets"
 
 export default function LandingPage() {
   return (
     <>
-      <header className="sticky top-0 bg-white border-b border-gray-200">
-        <div className="flex items-center justify-between px-4 py-3 desktop:w-[1200px] desktop:mx-auto">
-          <h1 className="h-[30px]">
-            <Link to="/">
-              <img src={logo} alt="logo" />
-            </Link>
-          </h1>
-          <Button asChild variant="outlined" className="w-auto py-2.5 px-4">
-            <Link to="/create-paper">롤링 페이퍼 만들기</Link>
-          </Button>
-        </div>
-      </header>
+      <Header />
       <main>
         <section className="px-5 pt-10 desktop:w-[1200px] desktop:mx-auto">
           <div className="p-6 bg-surface rounded-3xl tablet:p-10 desktop:flex desktop:justify-between desktop:p-16">
