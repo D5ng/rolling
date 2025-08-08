@@ -28,7 +28,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+
+    "rootDirs": [".", "./.react-router/types"]
   },
-  "include": ["src", "./vitest-setup.ts"]
+  "include": ["src", "./vitest-setup.ts", ".react-router/types/**/*"]
 }
