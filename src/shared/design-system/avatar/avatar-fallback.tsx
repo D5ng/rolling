@@ -8,7 +8,7 @@ export default function AvatarFallback({ children, className, ...restProps }: HT
   const { imageLoadingStatus } = useAvatar()
 
   return imageLoadingStatus !== "loaded" ? (
-    <div className={cn("text-gray-500", className)} {...restProps}>
+    <div className={cn("text-gray-500 text-sm", className)} {...restProps}>
       {children}
     </div>
   ) : null
