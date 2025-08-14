@@ -1,4 +1,4 @@
-import { useRecipients } from "../models/use-recipients"
+import { useRecipients } from "../models"
 
 import PaperList from "./paper-list"
 import PaperSection from "./paper-section"

@@ -1,5 +1,4 @@
-import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "../models/paper-list.constants"
-import { useRecipients } from "../models/use-recipients"
+import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET, useRecipients } from "../models"
 
 import PaperList from "./paper-list"
 import PaperSection from "./paper-section"
