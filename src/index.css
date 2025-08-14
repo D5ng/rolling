@@ -69,3 +69,19 @@
 .swiper-button-next {
   right: 0 !important;
 }
+
+/* 모바일에서 navigation 버튼 숨기기 */
+@media (max-width: 1199px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+/* PC에서만 navigation 버튼 표시 */
+@media (min-width: 1200px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex !important;
+  }
+}
