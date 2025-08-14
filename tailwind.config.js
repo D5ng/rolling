@@ -7,6 +7,9 @@ export default {
       desktop: "1200px"
     },
     extend: {
+      backgroundPosition: {
+        "right-bottom": "100% 110%"
+      },
       colors: {
         purple: {
           100: "#F8F0FF",
@@ -19,7 +22,7 @@ export default {
           800: "#6E0AD1",
           900: "#5603A7"
         },
-        orange: {
+        beige: {
           100: "#FFF0D6",
           200: "#FFE2AD",
           300: "#FFC583",
