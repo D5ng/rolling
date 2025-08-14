@@ -1,6 +1,6 @@
 import { axiosInstance } from "@/shared/config"
 
-import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "../models/constants"
+import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "../models/paper-list.constants"
 
 import type { RecipientsParams } from "./types"
 import type { RecipientsResponse } from "@/entities/recipient"
