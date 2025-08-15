@@ -1,7 +1,7 @@
 import { Link } from "react-router"
 
 import { LogoIcon } from "@/shared/assets/icons"
-import Button from "@/shared/design-system/button/button"
+import { Button } from "@/shared/design-system/button"
 
 export default function Header() {
   return (

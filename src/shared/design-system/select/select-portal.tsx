@@ -1,4 +1,4 @@
-import Portal from "../portal/portal"
+import { Portal } from "../portal"
 
 import type { ReactNode } from "react"
 

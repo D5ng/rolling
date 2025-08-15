@@ -2,8 +2,7 @@ import { useQueryErrorResetBoundary } from "@tanstack/react-query"
 import { Suspense } from "react"
 import { ErrorBoundary } from "react-error-boundary"
 
-import PopularPaper from "@/features/paper-list/ui/popular-paper"
-import RecentPaper from "@/features/paper-list/ui/recent-paper"
+import { PopularPaper, RecentPaper } from "@/features/paper-list"
 import { Header } from "@/widgets"
 
 import PaperListErrorFallback from "./paper-list-error-fallback"

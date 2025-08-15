@@ -2,10 +2,9 @@ import { useSuspenseQuery } from "@tanstack/react-query"
 
 import { recipientQueryKey, RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "@/entities/recipient"
 
-import { getRecipients } from "../apis"
+import { getRecipients } from "../apis/get-recipients"
 
-import type { RecipientsParams } from "../apis"
-import type { Recipient } from "@/entities/recipient"
+import type { Recipient, RecipientsParams } from "@/entities/recipient"
 
 export function usePopularRecipients({ limit = RECIPIENTS_LIMIT, offset = RECIPIENTS_OFFSET }: RecipientsParams) {
   return useSuspenseQuery({

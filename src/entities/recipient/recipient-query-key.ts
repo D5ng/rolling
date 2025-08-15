@@ -1,4 +1,4 @@
-import type { RecipientsParams } from "@/features/paper-list/apis"
+import type { RecipientsParams } from "./recipient.types"
 
 export const recipientQueryKey = {
   all: ["recipients"],

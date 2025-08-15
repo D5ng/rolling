@@ -1,6 +1,6 @@
 import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "@/entities/recipient"
 
-import { usePopularRecipients } from "../models"
+import { usePopularRecipients } from "../models/use-popular-recipients"
 
 import PaperList from "./paper-list"
 import PaperSection from "./paper-section"
