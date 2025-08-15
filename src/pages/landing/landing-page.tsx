@@ -44,7 +44,7 @@ export default function LandingPage() {
           </div>
         </section>
         <div className="w-full px-5 mt-10 desktop:flex desktop:justify-center">
-          <Button className="w-full h-14 rounded-xl desktop:w-[280px]">
+          <Button className="w-full h-14 rounded-xl desktop:w-[280px]" asChild>
             <Link to="/lists">구경해보기</Link>
           </Button>
         </div>
