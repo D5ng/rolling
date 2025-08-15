@@ -4,7 +4,7 @@ import { cn } from "@/shared/utils"
 
 import { Input } from "../input"
 import { Label } from "../label"
-import Textarea from "../textarea/textarea"
+import { Textarea } from "../textarea"
 
 interface BaseProps {
   label?: string
