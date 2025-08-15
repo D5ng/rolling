@@ -1,4 +1,4 @@
-export const RECIPIENTS_LIMIT = 5
+export const RECIPIENTS_LIMIT = 8
 
 export const RECIPIENTS_OFFSET = 0
 
