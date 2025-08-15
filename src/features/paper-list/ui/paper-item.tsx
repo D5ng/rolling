@@ -3,7 +3,7 @@ import { Link } from "react-router"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/design-system/avatar"
 import { AvatarGroup } from "@/shared/design-system/avatar-group"
-import ReactionBadge from "@/shared/design-system/reaction-badge/reaction-badge"
+import { ReactionBadge } from "@/shared/design-system/reaction-badge"
 import { cn } from "@/shared/utils"
 
 import type { Recipient } from "@/entities/recipient"
