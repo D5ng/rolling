@@ -1,9 +1,7 @@
 import { cva } from "class-variance-authority"
 import { Link } from "react-router"
 
-import Avatar from "@/shared/design-system/avatar/avatar"
-import AvatarFallback from "@/shared/design-system/avatar/avatar-fallback"
-import AvatarImage from "@/shared/design-system/avatar/avatar-image"
+import { Avatar, AvatarFallback, AvatarImage } from "@/shared/design-system/avatar"
 import AvatarGroup from "@/shared/design-system/avatar-group/avatar-group"
 import ReactionBadge from "@/shared/design-system/reaction-badge/reaction-badge"
 import { cn } from "@/shared/utils"
