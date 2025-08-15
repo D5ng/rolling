@@ -4,7 +4,7 @@ import { recipientQueryKey, RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "@/entiti
 
 import { getRecipients } from "../apis/get-recipients"
 
-import type { RecipientsParams } from "../apis/types"
+import type { RecipientsParams } from "@/entities/recipient"
 
 export function useRecentRecipients({ limit = RECIPIENTS_LIMIT, offset = RECIPIENTS_OFFSET }: RecipientsParams) {
   return useSuspenseQuery({

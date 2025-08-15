@@ -24,3 +24,8 @@ export interface Recipient {
   reactionCount: number
   topReactions: Reaction[]
 }
+
+export interface RecipientsParams {
+  limit?: number
+  offset?: number
+}
