@@ -1,8 +1,10 @@
 import { useQueryErrorResetBoundary } from "@tanstack/react-query"
 import { Suspense } from "react"
 import { ErrorBoundary } from "react-error-boundary"
+import { Link } from "react-router"
 
 import { PopularPaper, RecentPaper } from "@/features/paper-list"
+import { Button } from "@/shared/design-system/button"
 import { Header } from "@/widgets"
 
 import PaperListErrorFallback from "./paper-list-error-fallback"
@@ -25,6 +27,12 @@ export default function PaperListPage() {
             <RecentPaper />
           </Suspense>
         </ErrorBoundary>
+
+        <div className="w-full px-5 mt-10 desktop:flex desktop:justify-center">
+          <Button asChild className="w-full h-14 rounded-xl desktop:w-[280px]">
+            <Link to="/create-paper">나도 만들어보기</Link>
+          </Button>
+        </div>
       </main>
     </>
   )
