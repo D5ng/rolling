@@ -2,8 +2,7 @@ import { Children, type ReactNode } from "react"
 
 import { clamp, cn } from "@/shared/utils"
 
-import Avatar from "../avatar/avatar"
-import AvatarFallback from "../avatar/avatar-fallback"
+import { Avatar, AvatarFallback } from "../avatar"
 
 const MAX_AVATAR_COUNT = 99
 

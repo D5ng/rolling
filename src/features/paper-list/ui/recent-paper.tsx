@@ -1,6 +1,6 @@
 import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "@/entities/recipient"
 
-import { useRecentRecipients } from "../models"
+import { useRecentRecipients } from "../models/use-recent-recipients"
 
 import PaperList from "./paper-list"
 import PaperSection from "./paper-section"

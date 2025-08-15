@@ -1,6 +1,4 @@
-import Avatar from "../avatar/avatar"
-import AvatarFallback from "../avatar/avatar-fallback"
-import AvatarImage from "../avatar/avatar-image"
+import { Avatar, AvatarFallback, AvatarImage } from "../avatar"
 
 import AvatarGroup from "./avatar-group"
 

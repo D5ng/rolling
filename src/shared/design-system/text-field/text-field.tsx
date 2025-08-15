@@ -2,9 +2,9 @@ import { forwardRef, type InputHTMLAttributes, type Ref, type TextareaHTMLAttrib
 
 import { cn } from "@/shared/utils"
 
-import Input from "../input/input"
-import Label from "../label/label"
-import Textarea from "../textarea/textarea"
+import { Input } from "../input"
+import { Label } from "../label"
+import { Textarea } from "../textarea"
 
 interface BaseProps {
   label?: string
