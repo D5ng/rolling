@@ -1,4 +1,4 @@
-import Button from "@/shared/design-system/button/button"
+import { Button } from "@/shared/design-system/button"
 
 import type { FallbackProps } from "react-error-boundary"
 
