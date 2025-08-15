@@ -18,4 +18,70 @@
   img {
     @apply w-full h-full object-cover object-center;
   }
+
+  .swiper-slide {
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
+/* Swiper 네비게이션 버튼 기본 스타일 */
+.swiper-button-next,
+.swiper-button-prev {
+  background: white !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  border: 1px solid #d1d5db !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+  margin-top: -20px !important;
+}
+
+/* 화살표 아이콘 스타일 */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px !important;
+  color: #374151 !important;
+  font-weight: bold !important;
+}
+
+/* .swiper-button-prev.swiper-button-disabled */
+/* disabled 상태 스타일 */
+.swiper-button-disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  background-color: #f3f4f6 !important;
+  border-color: #e5e7eb !important;
+  pointer-events: all !important;
+}
+
+/* disabled 상태의 화살표 색상 */
+.swiper-button-disabled::after {
+  color: #9ca3af !important;
+}
+
+/* 위치 조정 */
+.swiper-button-prev {
+  left: 0 !important;
+}
+
+.swiper-button-next {
+  right: 0 !important;
+}
+
+/* 모바일에서 navigation 버튼 숨기기 */
+@media (max-width: 1199px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+/* PC에서만 navigation 버튼 표시 */
+@media (min-width: 1200px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex !important;
+  }
 }

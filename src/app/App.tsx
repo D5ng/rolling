@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { createBrowserRouter, RouterProvider } from "react-router"
 
-import { LandingPage } from "../pages"
+import { LandingPage, PaperListPage } from "../pages"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,6 +25,10 @@ export default function App() {
     {
       path: "/",
       element: <LandingPage />
+    },
+    {
+      path: "/lists",
+      element: <PaperListPage />
     }
   ])
 
