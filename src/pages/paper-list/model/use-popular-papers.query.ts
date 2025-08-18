@@ -2,7 +2,7 @@ import { useSuspenseQuery } from "@tanstack/react-query"
 
 import { paperQueryKey, PAPER_LIMIT, PAPER_OFFSET } from "@/entities/paper"
 
-import { getPapers } from "../apis/get-papers"
+import { getPapers } from "../api/get-papers"
 
 import type { Paper, PaperParams } from "@/entities/paper"
 

@@ -1,6 +1,6 @@
 import { PAPER_LIMIT, PAPER_OFFSET } from "@/entities/paper"
 
-import { useRecentPapers } from "../models/use-recent-papers.query"
+import { useRecentPapers } from "../model/use-recent-papers.query"
 
 import PaperList from "./paper-list"
 import PaperSection from "./paper-section"

@@ -2,7 +2,7 @@ import { Link } from "react-router"
 
 import { FirstPointImage, SecondPointImage } from "@/shared/assets/images"
 import { Button } from "@/shared/design-system/button"
-import { Header } from "@/widgets"
+import { Header } from "@/shared/ui"
 
 export default function LandingPage() {
   return (

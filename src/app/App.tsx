@@ -2,7 +2,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { createBrowserRouter, RouterProvider } from "react-router"
 
-import { landingRoute, paperListRoute } from "../pages"
+import { landingRoute } from "@/pages/landing"
+import { paperListRoute } from "@/pages/paper-list"
 
 const queryClient = new QueryClient({
   defaultOptions: {

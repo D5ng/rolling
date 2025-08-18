@@ -2,7 +2,7 @@ import { Button } from "@/shared/design-system/button"
 
 import type { FallbackProps } from "react-error-boundary"
 
-export default function PaperListErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+export default function PaperListError({ error, resetErrorBoundary }: FallbackProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-4 h-screen">
       <div className="flex flex-col items-center justify-center gap-2">
