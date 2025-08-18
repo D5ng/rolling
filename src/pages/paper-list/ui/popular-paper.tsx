@@ -1,6 +1,6 @@
 import { PAPER_LIMIT, PAPER_OFFSET } from "@/entities/paper"
 
-import { usePopularPapers } from "../models/use-popular-papers.query"
+import { usePopularPapers } from "../model/use-popular-papers.query"
 
 import PaperList from "./paper-list"
 import PaperSection from "./paper-section"

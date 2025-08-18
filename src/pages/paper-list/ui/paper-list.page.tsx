@@ -3,12 +3,13 @@ import { Suspense } from "react"
 import { ErrorBoundary } from "react-error-boundary"
 import { Link } from "react-router"
 
-import { PopularPaper, RecentPaper } from "@/features/paper-list"
 import { Button } from "@/shared/design-system/button"
 import { Header } from "@/widgets"
 
-import PaperListErrorFallback from "./paper-list-error-fallback"
-import PaperListSkeleton from "./paper-list-skeleton"
+import PaperListErrorFallback from "./paper-list.error"
+import PaperListSkeleton from "./paper-list.skeleton"
+import PopularPaper from "./popular-paper"
+import RecentPaper from "./recent-paper"
 
 export default function PaperListPage() {
   const { reset } = useQueryErrorResetBoundary()

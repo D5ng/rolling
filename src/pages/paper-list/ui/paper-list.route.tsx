@@ -1,4 +1,4 @@
-import PaperListPage from "./paper-list-page"
+import PaperListPage from "./paper-list.page"
 
 import type { RouteObject } from "react-router"
 
