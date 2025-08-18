@@ -1,16 +1,16 @@
-import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "@/entities/recipient"
+import { PAPER_LIMIT, PAPER_OFFSET } from "@/entities/paper"
 
-import { useRecentRecipients } from "../models/use-recent-recipients"
+import { useRecentPapers } from "../models/use-recent-papers.query"
 
 import PaperList from "./paper-list"
 import PaperSection from "./paper-section"
 
 export default function RecentPaper() {
-  const { data } = useRecentRecipients({ limit: RECIPIENTS_LIMIT, offset: RECIPIENTS_OFFSET })
+  const { data } = useRecentPapers({ limit: PAPER_LIMIT, offset: PAPER_OFFSET })
 
   return (
     <PaperSection renderTitle="최근에 만든 롤링 페이퍼 ⭐️️">
-      <PaperList recipients={data!.results} />
+      <PaperList papers={data!.results} />
     </PaperSection>
   )
 }

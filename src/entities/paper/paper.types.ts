@@ -1,18 +1,18 @@
 // Cross-import 처리
 // https://feature-sliced.design/kr/docs/reference/public-api#public-api-for-cross-imports
-import type { RecentMessages } from "@/entities/recipient/@x/message"
-import type { Reaction } from "@/entities/recipient/@x/reaction"
+import type { RecentMessages } from "@/entities/paper/@x/message"
+import type { Reaction } from "@/entities/paper/@x/reaction"
 
 export type BackgroundColor = "beige" | "purple" | "blue" | "green"
 
-export interface RecipientsResponse {
+export interface PapersResponse {
   count: number
   next: string
   previous: string
-  results: Recipient[]
+  results: Paper[]
 }
 
-export interface Recipient {
+export interface Paper {
   id: number
   team: string
   name: string
@@ -25,7 +25,7 @@ export interface Recipient {
   topReactions: Reaction[]
 }
 
-export interface RecipientsParams {
+export interface PaperParams {
   limit?: number
   offset?: number
 }

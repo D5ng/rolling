@@ -1,13 +1,13 @@
 import { AxiosError } from "axios"
 
-import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "@/entities/recipient"
+import { PAPER_LIMIT, PAPER_OFFSET } from "@/entities/paper"
 import { axiosInstance } from "@/shared/config"
 
-import type { RecipientsResponse, RecipientsParams } from "@/entities/recipient"
+import type { PapersResponse, PaperParams } from "@/entities/paper"
 
-export async function getRecipients({ limit = RECIPIENTS_LIMIT, offset = RECIPIENTS_OFFSET }: RecipientsParams) {
+export async function getPapers({ limit = PAPER_LIMIT, offset = PAPER_OFFSET }: PaperParams) {
   try {
-    const { data } = await axiosInstance.get<RecipientsResponse>(`recipients/`, {
+    const { data } = await axiosInstance.get<PapersResponse>(`recipients/`, {
       params: {
         limit,
         offset
