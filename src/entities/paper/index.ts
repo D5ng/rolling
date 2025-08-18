@@ -1,3 +1,3 @@
-export type { RecipientsResponse, Recipient, RecipientsParams } from "./paper.types"
-export { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET, RECIPIENTS_TYPE } from "./paper.constants"
-export { recipientQueryKey } from "./paper-query-key"
+export type { PapersResponse, Paper, PaperParams } from "./paper.types"
+export { PAPER_LIMIT, PAPER_OFFSET } from "./paper.constants"
+export { paperQueryKey } from "./paper.query-key"
