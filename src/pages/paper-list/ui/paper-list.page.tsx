@@ -4,7 +4,7 @@ import { ErrorBoundary } from "react-error-boundary"
 import { Link } from "react-router"
 
 import { Button } from "@/shared/design-system/button"
-import { Header } from "@/widgets"
+import { Header } from "@/shared/ui"
 
 import PaperListErrorFallback from "./paper-list.error"
 import PaperListSkeleton from "./paper-list.skeleton"
