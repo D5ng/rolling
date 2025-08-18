@@ -6,7 +6,7 @@ import { AvatarGroup } from "@/shared/design-system/avatar-group"
 import { ReactionBadge } from "@/shared/design-system/reaction-badge"
 import { cn } from "@/shared/utils"
 
-import type { Recipient } from "@/entities/recipient"
+import type { Recipient } from "@/entities/paper"
 
 const paperItemVariants = cva(
   `w-[208px] h-[232px] flex flex-col justify-between rounded-2xl border border-black/10 px-6 pt-[30px] pb-[20px] bg-no-repeat bg-right-bottom tablet:w-[275px] tablet:h-[260px]`,

@@ -1,9 +1,9 @@
 import { AxiosError } from "axios"
 
-import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "@/entities/recipient"
+import { RECIPIENTS_LIMIT, RECIPIENTS_OFFSET } from "@/entities/paper"
 import { axiosInstance } from "@/shared/config"
 
-import type { RecipientsResponse, RecipientsParams } from "@/entities/recipient"
+import type { RecipientsResponse, RecipientsParams } from "@/entities/paper"
 
 export async function getRecipients({ limit = RECIPIENTS_LIMIT, offset = RECIPIENTS_OFFSET }: RecipientsParams) {
   try {

@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 import PaperItem from "./paper-item"
 
-import type { Recipient } from "@/entities/recipient"
+import type { Recipient } from "@/entities/paper"
 
 import "swiper/css"
 import "swiper/css/navigation"
