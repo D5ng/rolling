@@ -7,7 +7,7 @@ import type { PapersResponse, PaperParams } from "@/entities/paper"
 
 export async function getPapers({ limit = PAPER_LIMIT, offset = PAPER_OFFSET }: PaperParams) {
   try {
-    const { data } = await axiosInstance.get<PapersResponse>(`papers/`, {
+    const { data } = await axiosInstance.get<PapersResponse>(`recipients/`, {
       params: {
         limit,
         offset
