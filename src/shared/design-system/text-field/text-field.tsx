@@ -11,34 +11,39 @@ interface BaseProps {
   as?: "input" | "textarea"
   error?: boolean
   disabled?: boolean
+  wrapperClassName?: string
+  helperText?: string
 }
 
 type Props = BaseProps & (InputHTMLAttributes<HTMLInputElement> | TextareaHTMLAttributes<HTMLTextAreaElement>)
 
 const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
-  ({ className, id, label, as = "input", error, disabled, ...restProps }, ref) => {
+  ({ id, label, as = "input", error, disabled, wrapperClassName, helperText, ...restProps }, ref) => {
     return (
-      <div className={cn(`flex flex-col gap-3`, className)}>
-        {label && <Label htmlFor={id}>{label}</Label>}
-        {as === "input" && (
-          <Input
-            type="text"
-            id={id}
-            error={error}
-            disabled={disabled}
-            ref={ref as Ref<HTMLInputElement>}
-            {...(restProps as InputHTMLAttributes<HTMLInputElement>)}
-          />
-        )}
-        {as === "textarea" && (
-          <Textarea
-            id={id}
-            error={error}
-            disabled={disabled}
-            ref={ref as Ref<HTMLTextAreaElement>}
-            {...(restProps as TextareaHTMLAttributes<HTMLTextAreaElement>)}
-          />
-        )}
+      <div className={cn(`flex flex-col gap-1`, wrapperClassName)}>
+        <div className="flex flex-col gap-3">
+          {label && <Label htmlFor={id}>{label}</Label>}
+          {as === "input" && (
+            <Input
+              type="text"
+              id={id}
+              error={error}
+              disabled={disabled}
+              ref={ref as Ref<HTMLInputElement>}
+              {...(restProps as InputHTMLAttributes<HTMLInputElement>)}
+            />
+          )}
+          {as === "textarea" && (
+            <Textarea
+              id={id}
+              error={error}
+              disabled={disabled}
+              ref={ref as Ref<HTMLTextAreaElement>}
+              {...(restProps as TextareaHTMLAttributes<HTMLTextAreaElement>)}
+            />
+          )}
+        </div>
+        {error && helperText && <p className="text-error text-sm">{helperText}</p>}
       </div>
     )
   }
