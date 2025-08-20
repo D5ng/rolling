@@ -7,7 +7,6 @@ import { Label } from "../label"
 import { Textarea } from "../textarea"
 
 interface BaseProps {
-  name: string
   label?: string
   as?: "input" | "textarea"
   error?: boolean
