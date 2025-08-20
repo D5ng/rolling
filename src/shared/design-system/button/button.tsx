@@ -10,10 +10,11 @@ const buttonVariants = cva("w-32 h-10 rounded-md flex items-center justify-cente
   variants: {
     variant: {
       primary:
-        "text-white bg-purple-600 hover:bg-purple-700 active:bg-purple-800 focus:border-purple-900 focus:border focus:bg-purple-800",
+        "text-white bg-purple-600 hover:bg-purple-700 active:bg-purple-800 focus:border-purple-900 focus:border focus:bg-purple-800 disabled:focus:border-none disabled:focus:bg-purple-600 disabled:hover:bg-purple-600 disabled:active:bg-purple-600",
       secondary:
-        "text-purple-700 border border-purple-600 hover:bg-purple-100 active:border-purple-800 focus:border-purple-800",
-      outlined: "border border-gray-300 hover:bg-gray-100 active:border-gray-100 focus:border-gray-500"
+        "text-purple-700 border border-purple-600 hover:bg-purple-100 active:border-purple-800 focus:border-purple-800 disabled:focus:border-none disabled:focus:bg-purple-600 disabled:hover:bg-purple-100 disabled:active:border-purple-800",
+      outlined:
+        "border border-gray-300 hover:bg-gray-100 active:border-gray-100 focus:border-gray-500 disabled:focus:border-none disabled:focus:bg-gray-300 disabled:hover:bg-gray-100 disabled:active:border-gray-100"
     },
     disabled: {
       true: "opacity-50 cursor-not-allowed",
