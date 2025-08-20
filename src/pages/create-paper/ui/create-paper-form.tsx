@@ -113,7 +113,7 @@ export default function CreatePaperForm() {
         </SegmentedControl>
       </div>
       <div className="fixed left-0 bottom-6 px-5 w-full desktop:relative desktop:px-0 desktop:mt-16">
-        <Button type="submit" className="w-full h-14 rounded-xl" disabled={isPending || !isValid} isLoading={true}>
+        <Button type="submit" className="w-full h-14 rounded-xl" disabled={isPending || !isValid} isLoading={isPending}>
           생성하기
         </Button>
       </div>
