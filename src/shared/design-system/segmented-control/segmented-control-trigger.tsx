@@ -28,13 +28,14 @@ export default function SegmentedControlTrigger({ children, value, ...restProps 
 
   return (
     <button
+      type="button"
       className={cn(triggerVariants({ selected: isSelected }))}
       onClick={() => onSelectedChange(value)}
-      {...restProps}
       role="tab"
       aria-selected={isSelected}
       aria-label={`${value}-trigger`}
       aria-controls={`${value}-content`}
+      {...restProps}
     >
       {children}
     </button>
