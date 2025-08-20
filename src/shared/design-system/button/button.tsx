@@ -2,6 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/shared/utils"
 
+import { Loading } from "../loading"
 import { Slot, Slottable } from "../slot"
 
 import type { ButtonHTMLAttributes, ReactNode } from "react"
@@ -31,6 +32,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<ty
   asChild?: boolean
   disabled?: boolean
   leftIcon?: ReactNode
+  isLoading?: boolean
 }
 
 export default function Button({
@@ -41,9 +43,23 @@ export default function Button({
   variant,
   disabled = false,
   className,
+  isLoading = false,
   ...restProps
 }: Props) {
   const Component = asChild ? Slot : "button"
+
+  if (isLoading) {
+    return (
+      <Component
+        type={type}
+        className={cn(buttonVariants({ variant, disabled }), className)}
+        disabled={disabled}
+        {...restProps}
+      >
+        <Loading />
+      </Component>
+    )
+  }
 
   return (
     <Component
@@ -52,6 +68,7 @@ export default function Button({
       disabled={disabled}
       {...restProps}
     >
+      {isLoading && <Loading />}
       {leftIcon && <span>{leftIcon}</span>}
       <Slottable>{children}</Slottable>
     </Component>
