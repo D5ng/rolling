@@ -6,7 +6,7 @@ import TextField from "./text-field"
 describe("TextField 렌더링 테스트", () => {
   describe("기본 렌더링", () => {
     it("기본 input 모드로 렌더링", () => {
-      render(<TextField />)
+      render(<TextField name="name" />)
 
       const input = screen.getByRole("textbox")
       expect(input).toBeInTheDocument()
@@ -15,7 +15,7 @@ describe("TextField 렌더링 테스트", () => {
     })
 
     it("textarea 모드로 렌더링", () => {
-      render(<TextField as="textarea" />)
+      render(<TextField as="textarea" name="contents" />)
 
       const textarea = screen.getByRole("textbox")
       expect(textarea).toBeInTheDocument()
@@ -23,7 +23,7 @@ describe("TextField 렌더링 테스트", () => {
     })
 
     it("label이 있을 때 렌더링", () => {
-      render(<TextField label="이름" id="name" />)
+      render(<TextField label="이름" name="name" />)
 
       const label = screen.getByText("이름")
       const input = screen.getByRole("textbox")
@@ -34,7 +34,7 @@ describe("TextField 렌더링 테스트", () => {
     })
 
     it("label이 없을 때 label 요소가 렌더링되지 않음", () => {
-      render(<TextField />)
+      render(<TextField name="name" />)
 
       const input = screen.getByRole("textbox")
       expect(input).toBeInTheDocument()
@@ -45,21 +45,21 @@ describe("TextField 렌더링 테스트", () => {
 
   describe("상태 관리", () => {
     it("error 상태에서 에러 스타일 적용", () => {
-      render(<TextField error />)
+      render(<TextField error name="name" />)
 
       const input = screen.getByRole("textbox")
       expect(input).toHaveClass("border-error")
     })
 
     it("disabled 상태에서 비활성화", () => {
-      render(<TextField disabled />)
+      render(<TextField disabled name="name" />)
 
       const input = screen.getByRole("textbox")
       expect(input).toBeDisabled()
     })
 
     it("error와 disabled 상태 동시 적용", () => {
-      render(<TextField error disabled />)
+      render(<TextField error disabled name="name" />)
 
       const input = screen.getByRole("textbox")
       expect(input).toHaveClass("border-error")
@@ -69,7 +69,7 @@ describe("TextField 렌더링 테스트", () => {
 
   describe("사용자 인터랙션", () => {
     it("input에서 텍스트 입력", async () => {
-      render(<TextField />)
+      render(<TextField name="name" />)
 
       const input = screen.getByRole("textbox")
       await userEvent.type(input, "Hello World")
@@ -78,7 +78,7 @@ describe("TextField 렌더링 테스트", () => {
     })
 
     it("textarea에서 텍스트 입력", async () => {
-      render(<TextField as="textarea" />)
+      render(<TextField as="textarea" name="contents" />)
 
       const textarea = screen.getByRole("textbox")
       await userEvent.type(textarea, "Multi-line\ntext")
@@ -87,7 +87,7 @@ describe("TextField 렌더링 테스트", () => {
     })
 
     it("disabled 상태에서 입력 불가", async () => {
-      render(<TextField disabled />)
+      render(<TextField disabled name="name" />)
 
       const input = screen.getByRole("textbox")
       await userEvent.type(input, "Hello")
