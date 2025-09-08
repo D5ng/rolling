@@ -27,7 +27,7 @@ const paperItemVariants = cva(
 
 export default function PaperItem({ id, backgroundColor, name, messageCount, topReactions, recentMessages }: Paper) {
   return (
-    <Link to={`/lists/${id}`}>
+    <Link to={`/paper/${id}`}>
       <div className={cn(paperItemVariants({ backgroundColor }))}>
         <div className="flex flex-col gap-3">
           <h3 className="text-lg font-bold tablet:text-xl">To. {name}</h3>
