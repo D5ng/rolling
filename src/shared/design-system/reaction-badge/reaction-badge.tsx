@@ -16,7 +16,7 @@ export default function ReactionBadge({ emoji, count, className }: Props) {
   return (
     <div
       className={cn(
-        "w-fit flex items-center justify-center gap-1 rounded-full bg-black/50 px-3 py-1.5 text-base",
+        "w-fit flex items-center justify-center gap-1 rounded-full bg-black/50 px-2 py-1 text-sm tablet:px-3 tablet:py-1.5 tablet:text-base",
         className
       )}
     >
