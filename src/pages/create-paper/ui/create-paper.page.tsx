@@ -1,6 +1,5 @@
+import { CreatePaperForm } from "@/features/create-paper"
 import { Header } from "@/widgets"
-
-import CreatePaperForm from "./create-paper-form"
 
 export default function CreatePaperPage() {
   return (
