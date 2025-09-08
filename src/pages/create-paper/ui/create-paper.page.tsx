@@ -1,4 +1,4 @@
-import { Header } from "@/shared/ui"
+import { Header } from "@/widgets"
 
 import CreatePaperForm from "./create-paper-form"
 
