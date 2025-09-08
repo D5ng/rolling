@@ -2,7 +2,7 @@ import { AxiosError } from "axios"
 
 import { axiosInstance } from "@/shared/config"
 
-import type { FormPaperSchema } from "../model/form-paper.schema"
+import type { FormPaperSchema } from "../models/form-paper.schema"
 
 export async function createPaper(data: FormPaperSchema) {
   try {

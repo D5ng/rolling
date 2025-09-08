@@ -13,8 +13,8 @@ import {
 } from "@/shared/design-system/segmented-control"
 import { TextField } from "@/shared/design-system/text-field"
 
-import { formPaperSchema, type FormPaperSchema } from "../model/form-paper.schema"
-import { useCreatePaperMutation } from "../model/use-create-paper.mutation"
+import { formPaperSchema, type FormPaperSchema } from "../models/form-paper.schema"
+import { useCreatePaperMutation } from "../models/use-create-paper.mutation"
 
 import BackgroundCard from "./background-card"
 import BackgroundItem from "./background-item"
