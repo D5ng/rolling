@@ -1,31 +1,85 @@
-/**
- * @param targetStart - 기준점의 left, top, right, bottom
- * @param targetSize  - 기준점의 width, height
- * @param floatingSize - 플로팅 요소의 width, height
- * @returns 기준점에 대한 가운데 정렬
- */
-function centerAlign(targetStart: number, targetSize: number, floatingSize: number): number {
-  return targetStart + (targetSize - floatingSize) / 2
+import type { Mode, Placement, Side } from "./use-floating.types"
+
+export function calculatorsPosition(placement: Placement, anchorRect: DOMRect, floatingRect: DOMRect, offset: number) {
+  const { side, mode } = parsePlacement(placement)
+
+  if (side === "top" || side === "bottom") {
+    return calculatorPositionForVertical({ side, mode, anchorRect, floatingRect, offset })
+  }
+
+  if (side === "left" || side === "right") {
+    return calculatorPositionForHorizontal({ side, mode, anchorRect, floatingRect, offset })
+  }
+
+  return { top: 0, left: 0 }
 }
 
-export const positionCalculators = {
-  top: (anchorRect: DOMRect, floatingRect: DOMRect, offset: number) => ({
-    top: anchorRect.top - floatingRect.height - offset,
-    left: centerAlign(anchorRect.left, anchorRect.width, floatingRect.width)
-  }),
+function align({ start, size, floatingSize, mode }: { start: number; size: number; floatingSize: number; mode: Mode }) {
+  switch (mode) {
+    case "start":
+      return start
+    case "end":
+      return start + size - floatingSize
+    case "center":
+    default:
+      return start + (size - floatingSize) / 2
+  }
+}
 
-  bottom: (anchorRect: DOMRect, floatingRect: DOMRect, offset: number) => ({
-    top: anchorRect.bottom + offset,
-    left: centerAlign(anchorRect.left, anchorRect.width, floatingRect.width)
-  }),
-
-  left: (anchorRect: DOMRect, floatingRect: DOMRect, offset: number) => ({
-    left: anchorRect.left - floatingRect.width - offset,
-    top: centerAlign(anchorRect.top, anchorRect.height, floatingRect.height)
-  }),
-
-  right: (anchorRect: DOMRect, floatingRect: DOMRect, offset: number) => ({
-    left: anchorRect.right + offset,
-    top: centerAlign(anchorRect.top, anchorRect.height, floatingRect.height)
+function calculatorPositionForVertical({
+  side,
+  mode,
+  anchorRect,
+  floatingRect,
+  offset
+}: {
+  side: Side
+  mode: Mode
+  anchorRect: DOMRect
+  floatingRect: DOMRect
+  offset: number
+}) {
+  const top = side === "top" ? anchorRect.top - floatingRect.height - offset : anchorRect.bottom + offset
+  const left = align({
+    start: anchorRect.left,
+    size: anchorRect.width,
+    floatingSize: floatingRect.width,
+    mode
   })
+
+  return { top, left }
+}
+
+function calculatorPositionForHorizontal({
+  side,
+  mode,
+  anchorRect,
+  floatingRect,
+  offset
+}: {
+  side: Side
+  mode: Mode
+  anchorRect: DOMRect
+  floatingRect: DOMRect
+  offset: number
+}) {
+  const top = align({
+    start: anchorRect.top,
+    size: anchorRect.height,
+    floatingSize: floatingRect.height,
+    mode
+  })
+  const left = side === "left" ? anchorRect.left - floatingRect.width - offset : anchorRect.right - offset
+
+  return { top, left }
+}
+
+function parsePlacement(placement: Placement): {
+  side: Side
+  mode: Mode
+} {
+  const [side, alignment] = placement.split("-") as ["top" | "bottom" | "left" | "right", "start" | "end" | undefined]
+  const mode = alignment ?? "center"
+
+  return { side, mode }
 }
