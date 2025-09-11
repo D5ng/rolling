@@ -1,6 +1,22 @@
 import type { RefObject } from "react"
 
-export type Placement = "top" | "left" | "bottom" | "right"
+export type Placement =
+  | "top"
+  | "top-start"
+  | "top-end"
+  | "left"
+  | "left-start"
+  | "left-end"
+  | "bottom"
+  | "bottom-start"
+  | "bottom-end"
+  | "right"
+  | "right-start"
+  | "right-end"
+
+export type Side = "top" | "left" | "bottom" | "right"
+
+export type Mode = "start" | "center" | "end"
 
 export interface UsePositionParams {
   offset?: number
