@@ -26,7 +26,7 @@ export default function AddReactionButton({ id }: Props) {
   )
 
   return (
-    <div className="relative" ref={emojiRef}>
+    <div className="relative z-50" ref={emojiRef}>
       <Button variant="outlined" className="w-9 h-8 flex items-center justify-center" onClick={toggle}>
         <AddReactionIcon className="w-5 h-5" />
       </Button>
