@@ -1,7 +1,7 @@
 // Cross-import 처리
 // https://feature-sliced.design/kr/docs/reference/public-api#public-api-for-cross-imports
 import type { PAPER_BACKGROUND_COLORS, PAPER_BACKGROUND_IMAGES } from "./paper.constants"
-import type { RecentMessages } from "@/entities/paper/@x/message"
+import type { Message } from "@/entities/paper/@x/message"
 import type { Reaction } from "@/entities/paper/@x/reaction"
 
 export type BackgroundColor = (typeof PAPER_BACKGROUND_COLORS)[number]
@@ -23,7 +23,7 @@ export interface Paper {
   backgroundImageURL: string
   createdAt: string
   messageCount: number
-  recentMessages: RecentMessages[]
+  recentMessages: Message[]
   reactionCount: number
   topReactions: Reaction[]
 }

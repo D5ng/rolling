@@ -1,1 +1,1 @@
-export type { RecentMessages, Font } from "./message.types"
+export type { MessagesResponse, Message, Font } from "./message.types"

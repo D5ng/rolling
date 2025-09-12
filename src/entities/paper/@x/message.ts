@@ -1,1 +1,1 @@
-export type { RecentMessages } from "../../message/message.types"
+export type { Message } from "../../message/message.types"

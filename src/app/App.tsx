@@ -3,9 +3,11 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { createBrowserRouter, RouterProvider } from "react-router"
 import { ToastContainer } from "react-toastify"
 
-import { createPaperRoute } from "@/pages/create-paper/ui/create-paper.route"
+import { createPaperRoute } from "@/pages/create-paper"
 import { landingRoute } from "@/pages/landing"
+import { paperDetailRoute } from "@/pages/paper-detail"
 import { paperListRoute } from "@/pages/paper-list"
+import { SCREENS } from "@/shared/constants"
 import { useWindowSize } from "@/shared/hooks"
 
 const queryClient = new QueryClient({
@@ -25,7 +27,7 @@ const queryClient = new QueryClient({
 })
 
 export default function App() {
-  const router = createBrowserRouter([landingRoute, paperListRoute, createPaperRoute])
+  const router = createBrowserRouter([landingRoute, paperListRoute, createPaperRoute, paperDetailRoute])
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -39,7 +41,7 @@ export default function App() {
 function ResponsiveToastContainer() {
   const { width } = useWindowSize()
 
-  if (width < 768) {
+  if (width < SCREENS.tablet) {
     return <ToastContainer position="bottom-center" closeOnClick />
   }
 
