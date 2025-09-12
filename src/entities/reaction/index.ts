@@ -1,1 +1,1 @@
-export type { Reaction } from "./reaction.types"
+export type { Reaction, ReactionPayload, ReactionResponse } from "./reaction.types"
