@@ -33,7 +33,7 @@ function SurPlusAvatar({ count, renderSurplus }: { count: number; renderSurplus?
 
   return (
     renderSurplus?.(count) ?? (
-      <Avatar className="w-7 h-7 bg-white border-white">
+      <Avatar className="w-7 h-7 bg-white border-gray-200">
         <AvatarFallback>+{count}</AvatarFallback>
       </Avatar>
     )
