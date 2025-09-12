@@ -15,5 +15,5 @@ export function useBooleanState(defaultValue: boolean = false) {
     setBoolean((prevBoolean) => !prevBoolean)
   }, [])
 
-  return [boolean, setTrue, setFalse, toggle]
+  return [boolean, setTrue, setFalse, toggle] as const
 }
