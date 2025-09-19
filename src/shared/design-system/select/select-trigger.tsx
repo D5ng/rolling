@@ -43,7 +43,7 @@ export default function SelectTrigger({ error, disabled, placeholder, className,
       className={cn(triggerVariants({ error, disabled }), className)}
       aria-expanded={open}
       onClick={() => {
-        onOpenChange(true)
+        onOpenChange(!open)
       }}
       ref={refs.setReference}
       onKeyDown={(event) => {
