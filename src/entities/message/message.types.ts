@@ -1,6 +1,8 @@
-export type Font = "Pretendard" | "Noto Sans" | "나눔명조" | "나눔손글씨 손편지체"
+import { FONTS, RELATION_SHIP_LISTS } from "./message.constants"
 
-type RelationShip = "지인" | "동료" | "가족" | "친구"
+export type Font = (typeof FONTS)[number]
+
+type RelationShip = (typeof RELATION_SHIP_LISTS)[number]
 
 export interface MessagesResponse {
   count: number
