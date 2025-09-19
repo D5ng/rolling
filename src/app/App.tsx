@@ -3,6 +3,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { createBrowserRouter, RouterProvider } from "react-router"
 import { ToastContainer } from "react-toastify"
 
+import { createMessageRoute } from "@/pages/create-message"
 import { createPaperRoute } from "@/pages/create-paper"
 import { landingRoute } from "@/pages/landing"
 import { paperDetailRoute } from "@/pages/paper-detail"
@@ -27,7 +28,13 @@ const queryClient = new QueryClient({
 })
 
 export default function App() {
-  const router = createBrowserRouter([landingRoute, paperListRoute, createPaperRoute, paperDetailRoute])
+  const router = createBrowserRouter([
+    landingRoute,
+    paperListRoute,
+    createPaperRoute,
+    paperDetailRoute,
+    createMessageRoute
+  ])
 
   return (
     <QueryClientProvider client={queryClient}>
