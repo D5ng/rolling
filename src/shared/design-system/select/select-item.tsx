@@ -54,7 +54,7 @@ export default function SelectItem({ children, value, ...restProps }: Props) {
       value={value}
       {...restProps}
     >
-      {children}
+      {children || value}
     </li>
   )
 }
