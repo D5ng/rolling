@@ -2,11 +2,18 @@ import { AxiosError } from "axios"
 
 import { axiosInstance } from "@/shared/config"
 
+import { MESSAGE_LIMIT_COUNT } from "../constants/paper-detail.constant"
+
 import type { MessagesResponse } from "@/entities/message"
 
-export async function getPaperMessages(id: string | number) {
+export async function getPaperMessages(id: string | number, offset: string | number) {
   try {
-    const { data } = await axiosInstance.get<MessagesResponse>(`recipients/${id}/messages/`)
+    const { data } = await axiosInstance.get<MessagesResponse>(`recipients/${id}/messages/`, {
+      params: {
+        limit: MESSAGE_LIMIT_COUNT,
+        offset
+      }
+    })
     return data
   } catch (error) {
     if (error instanceof AxiosError) {
