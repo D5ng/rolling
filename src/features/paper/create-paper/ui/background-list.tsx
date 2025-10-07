@@ -4,6 +4,6 @@ interface Props {
   children: ReactNode
 }
 
-export default function BackgroundCardList({ children }: Props) {
+export default function BackgroundList({ children }: Props) {
   return <ul className="flex flex-wrap gap-3">{children}</ul>
 }

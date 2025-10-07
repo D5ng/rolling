@@ -18,7 +18,7 @@ import { useCreatePaperMutation } from "../models/use-create-paper.mutation"
 
 import BackgroundCard from "./background-card"
 import BackgroundItem from "./background-item"
-import BackgroundCardList from "./background-list"
+import BackgroundList from "./background-list"
 
 const BACKGROUND_COLOR_DEFAULT_VALUE = PAPER_BACKGROUND_COLORS[0]
 
@@ -81,7 +81,7 @@ export default function CreatePaperForm() {
               control={control}
               name="backgroundColor"
               render={({ field: { value, onChange } }) => (
-                <BackgroundCardList>
+                <BackgroundList>
                   {PAPER_BACKGROUND_COLORS.map((backgroundColor) => (
                     <BackgroundCard key={backgroundColor}>
                       <BackgroundItem
@@ -91,7 +91,7 @@ export default function CreatePaperForm() {
                       />
                     </BackgroundCard>
                   ))}
-                </BackgroundCardList>
+                </BackgroundList>
               )}
             />
           </SegmentedControlContent>
@@ -100,13 +100,13 @@ export default function CreatePaperForm() {
               control={control}
               name="backgroundImageURL"
               render={({ field: { value, onChange } }) => (
-                <BackgroundCardList>
+                <BackgroundList>
                   {PAPER_BACKGROUND_IMAGES.map((image) => (
                     <BackgroundCard key={image}>
                       <BackgroundItem isSelected={value === image} src={image} onBackgroundChange={onChange} />
                     </BackgroundCard>
                   ))}
-                </BackgroundCardList>
+                </BackgroundList>
               )}
             />
           </SegmentedControlContent>
