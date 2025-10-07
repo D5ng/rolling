@@ -31,9 +31,9 @@ export default function CreateMessageForm() {
       relationship: "지인"
     }
   })
-  const { mutate, isPending } = useCreateMessageMutation(id!)
+  const { mutateAsync, isPending } = useCreateMessageMutation(id!)
 
-  const onSubmit = (data: FormMessageSchema) => {
+  const onSubmit = async (data: FormMessageSchema) => {
     const value: FormMessageSchema & { id: string | number; font: Font } = {
       id: id!,
       sender: data.sender,
@@ -43,7 +43,7 @@ export default function CreateMessageForm() {
       font: "Pretendard"
     }
 
-    mutate(value)
+    await mutateAsync(value)
   }
 
   return (

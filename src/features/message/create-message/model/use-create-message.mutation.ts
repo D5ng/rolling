@@ -17,6 +17,10 @@ export function useCreateMessageMutation(id: string | number) {
         queryKey: paperQueryKey.messages(id)
       })
 
+      queryClient.invalidateQueries({
+        queryKey: paperQueryKey.detail(id)
+      })
+
       navigate(`/paper/${id}`)
       toast.success("메세지가 성공적으로 생성되었어요.")
     },
