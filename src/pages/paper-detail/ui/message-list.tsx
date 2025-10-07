@@ -1,10 +1,13 @@
+/* eslint-disable react/no-array-index-key */
 import { Link } from "react-router"
 
 import { PlusIcon } from "@/shared/assets/icons"
+import { useIntersectionObserver } from "@/shared/hooks/use-intersection-observer"
 
 import { usePaperMessagesQuery } from "../models/use-paper-messages.query"
 
 import MessageItem from "./message-item"
+import { MessageItemSkeleton } from "./message.skeleton"
 
 import type { BackgroundColor } from "@/entities/paper/paper.types"
 
@@ -20,16 +23,24 @@ const backgroundColorMap = {
   green: "bg-green-200"
 }
 
-const HEADER_AND_SUB_HEADER_TOTAL_HEIGHT = 67 + 65
+const MESSAGE_SKELETON_COUNT = 6
 
 export default function MessageList({ id, backgroundColor }: Props) {
-  const { data } = usePaperMessagesQuery(id)
-
+  const { data: messagesData, fetchNextPage, hasNextPage, isFetching } = usePaperMessagesQuery(id)
+  const ref = useIntersectionObserver(
+    (entry) => {
+      if (entry.isIntersecting && hasNextPage) {
+        fetchNextPage()
+      }
+    },
+    {
+      threshold: 0.5
+    }
+  )
   const backgroundStyle = backgroundColorMap[backgroundColor]
-  const heightStyle = `h-[calc(100vh-${HEADER_AND_SUB_HEADER_TOTAL_HEIGHT}px)]`
 
   return (
-    <div className={`px-5 pt-10 ${backgroundStyle} ${heightStyle} desktop:px-0 desktop:pt-20`}>
+    <div className={`px-5 py-10 ${backgroundStyle} desktop:px-0 desktop:py-20`}>
       <ul
         className={`max-w-[1200px] mx-auto grid grid-cols-1 gap-y-4 tablet:grid-cols-2 tablet:gap-4 desktop:grid-cols-3 desktop:gap-6`}
       >
@@ -40,15 +51,13 @@ export default function MessageList({ id, backgroundColor }: Props) {
             </div>
           </Link>
         </li>
-        {data.results.map((message) => (
-          <li
-            key={message.id}
-            className="bg-white drop-shadow-sm h-[63.8889vw] rounded-2xl tablet:h-[284px] desktop:h-[280px]"
-          >
-            <MessageItem {...message} />
-          </li>
+        {messagesData.map((message) => (
+          <MessageItem key={message.id} {...message} />
         ))}
+        {isFetching &&
+          Array.from({ length: MESSAGE_SKELETON_COUNT }).map((_, index) => <MessageItemSkeleton key={index} />)}
       </ul>
+      <div ref={ref} className="w-full h-[1px]" />
     </div>
   )
 }
