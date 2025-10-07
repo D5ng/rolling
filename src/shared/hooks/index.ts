@@ -1,2 +1,5 @@
 export { useWindowSize } from "./use-window-size"
 export { useBooleanState } from "./use-boolean-state"
+export { useIntersectionObserver } from "./use-intersection-observer"
+export { usePreservedCallback } from "./use-preserved-callback"
+export { useRefEffect } from "./use-ref-effect"
